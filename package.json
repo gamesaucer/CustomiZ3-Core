@@ -2,6 +2,7 @@
   "name": "customiz3-core",
   "version": "0.1.0",
   "description": "Zelda 3 ROM Customizer",
+  "type": "module",
   "main": "module.js",
   "scripts": {
     "start": "node module.js",
@@ -23,9 +24,26 @@
   "homepage": "https://github.com/gamesaucer/CustomiZ3-Core#readme",
   "dependencies": {},
   "devDependencies": {
+    "@babel/cli": "^7.7.4",
+    "@babel/core": "^7.7.4",
+    "@babel/node": "^7.7.4",
+    "@babel/preset-env": "^7.7.4",
     "coveralls": "^3.0.9",
     "jest": "^24.9.0",
     "shx": "^0.3.2",
     "standard": "^14.3.1"
+  },
+  "babel": {
+    "presets": [
+      [
+        "@babel/preset-env",
+        {
+          "targets": {
+            "node": "current"
+          }
+        }
+      ]
+    ],
+    "plugins": []
   }
 }
