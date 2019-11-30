@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 export default class BasePatcher {
   setRomWriter (romWriter) {
     this.romWriter = romWriter
@@ -8,6 +10,6 @@ export default class BasePatcher {
   }
 
   patch () {
-    this.romWriter.write(this.gameOptions)
+    this.romWriter.applyPatches(this.gameOptions)
   }
 }

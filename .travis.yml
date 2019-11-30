@@ -12,10 +12,11 @@ install:
 script:
   - npm run lint
   - npm run unit
-  - npm run integration
+  - npm run component
 
 after_success:
   - npm run coveralls
+    if: branch = master
 
 notifications:
   email: false

@@ -1,4 +1,4 @@
-/* global describe, test, expect, beforeEach, jest */
+/* global describe, it, expect, beforeEach, jest */
 
 import BasePatcher from '../../module/BasePatcher.js'
 import RomWriter from '../../module/RomWriter.js'
@@ -9,24 +9,24 @@ beforeEach(() => {
   RomWriter.mockClear()
 })
 
-describe('The BasePatcher class should', () => {
-  test('allow instantiation', () => {
+describe('The BasePatcher class', () => {
+  it('should allow instantiation', () => {
     const patcher = new BasePatcher()
     expect(patcher).toBeTruthy()
   })
-  test('have the method setRomWriter', () => {
+  it('should have the method setRomWriter', () => {
     expect(BasePatcher.prototype.setRomWriter).toBeDefined()
   })
-  test('have the method setGameOptions', () => {
+  it('should have the method setGameOptions', () => {
     expect(BasePatcher.prototype.setGameOptions).toBeDefined()
   })
-  test('have the method patch', () => {
+  it('should have the method patch', () => {
     expect(BasePatcher.prototype.patch).toBeDefined()
   })
 })
 
-describe('The setRomWriter method should', () => {
-  test('set the romWriter property', () => {
+describe('The setRomWriter method', () => {
+  it('should set the romWriter property', () => {
     const mockRomWriter = new RomWriter()
     const patcher = new BasePatcher()
 
@@ -36,8 +36,8 @@ describe('The setRomWriter method should', () => {
   })
 })
 
-describe('The setGameOptions method should', () => {
-  test('set the gameOptions property', () => {
+describe('The setGameOptions method', () => {
+  it('should set the gameOptions property', () => {
     const exampleGameOptions = 'exampleGameOptions'
     const patcher = new BasePatcher()
 
@@ -47,8 +47,8 @@ describe('The setGameOptions method should', () => {
   })
 })
 
-describe('The patch method should', () => {
-  test('call the romWriter method "write" once with the desired changes', () => {
+describe('The patch method', () => {
+  it('should call the romWriter method "applyPatches" once with the desired changes', () => {
     const patcher = new BasePatcher()
     const mockRomWriter = new RomWriter()
 
@@ -56,7 +56,7 @@ describe('The patch method should', () => {
     patcher.setGameOptions('exampleGameOptions')
     patcher.patch()
 
-    expect(mockRomWriter.write).toHaveBeenCalledWith('exampleGameOptions')
-    expect(mockRomWriter.write).toHaveBeenCalledTimes(1)
+    expect(mockRomWriter.applyPatches).toHaveBeenCalledWith('exampleGameOptions')
+    expect(mockRomWriter.applyPatches).toHaveBeenCalledTimes(1)
   })
 })
