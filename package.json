@@ -11,7 +11,7 @@
     "unit": "jest unit --passWithNoTests --coverage",
     "coveralls": "shx cat ./coverage/lcov.info | coveralls",
     "test": "npm run lint && npm run unit && npm run integration",
-    "writeTest": "node test/custom/RomWriterWriteTest.js"
+    "jsdoc": "jsdoc -r -c .jsdoc.json"
   },
   "repository": {
     "type": "git",
@@ -31,6 +31,7 @@
     "@babel/preset-env": "^7.7.4",
     "coveralls": "^3.0.9",
     "jest": "^24.9.0",
+    "jsdoc": "^3.6.3",
     "shx": "^0.3.2",
     "standard": "^14.3.1"
   },

@@ -1,19 +1,7 @@
-/* global describe, it, expect, jest, beforeEach, afterEach */
+/* global describe, it, expect, jest */
 
-import RomWriter from '../../module/RomWriter.js'
-const fs = require('fs')
-// var mockReadFile
-// var mockWriteFile
-
-beforeEach(() => {
-  // mockReadFile = jest.spyOn(fs, 'readFile').mockImplementation((_1, _2, cb) => { cb(null, Buffer.alloc(8)) })
-  // mockWriteFile = jest.spyOn(fs, 'writeFile').mockImplementation((_1, _2, _3, cb) => { cb(null) })
-})
-
-afterEach(() => {
-  // mockWriteFile.mockReset()
-  // mockReadFile.mockReset()
-})
+import RomWriter from '../../module/RomWriter'
+import fs from 'fs'
 
 describe('The RomWriter class', () => {
   it('should allow instantiation', () => {
@@ -114,6 +102,8 @@ describe('The applyPatches method', () => {
     const mockWriteTarget = jest.spyOn(romWriter, 'writeTarget').mockResolvedValue()
 
     newBuffer.write('1234', 0, 4, null)
+    romWriter.setSourceFileLocation('source')
+    romWriter.setTargetFileLocation('target')
     romWriter.applyPatches([[0x00, [0x31, 0x32, 0x33, 0x34]]]).then(() => {
       expect(mockReadSource).toHaveBeenCalled()
       expect(mockWriteTarget).toHaveBeenCalledWith(newBuffer)
@@ -121,5 +111,15 @@ describe('The applyPatches method', () => {
     }).catch((error) => {
       done(error)
     })
+  })
+  it('should throw an error if source and target are the same', () => {
+    const examplePath = 'examplePath'
+    const romWriter = new RomWriter()
+
+    jest.spyOn(romWriter, 'readSource').mockResolvedValue()
+    jest.spyOn(romWriter, 'writeTarget').mockResolvedValue()
+    romWriter.setTargetFileLocation(examplePath)
+    romWriter.setSourceFileLocation(examplePath)
+    expect(romWriter.applyPatches([])).rejects.toThrow()
   })
 })

@@ -1,16 +1,32 @@
 #!/usr/bin/env node
 
-const fs = require('fs')
+import fs from 'fs'
 
+/**
+ * Module for patching and outputting a rom file.
+ * @module RomWriter
+ */
 export default class RomWriter {
+  /**
+   * Configure which source file to read and patch.
+   * @param {string} source - The source path
+   */
   setSourceFileLocation (source) {
     this.source = source
   }
 
+  /**
+   * Configure which target file to write the patched rom to.
+   * @param {string} target - The source path
+   */
   setTargetFileLocation (target) {
     this.target = target
   }
 
+  /**
+   * Read the rom set as the source.
+   * @return {Promise} Resolves with file contents if successful.
+   */
   readSource () {
     return new Promise((resolve, reject) => {
       fs.readFile(this.source, null, (err, data) => {
@@ -20,6 +36,11 @@ export default class RomWriter {
     })
   }
 
+  /**
+   * Write the patched rom to the target file.
+   * @param {Buffer} buffer - The patched rom.
+   * @return {Promise} Resolves if successful.
+   */
   writeTarget (buffer) {
     return new Promise((resolve, reject) => {
       fs.writeFile(this.target, buffer, { encoding: null }, err => {
@@ -29,7 +50,12 @@ export default class RomWriter {
     })
   }
 
+  /**
+   * Applies a given set of patches to the rom.
+   * @param {Array} patches - The set of patches.
+   */
   async applyPatches (patches) {
+    if (this.source === this.target) throw new Error('Source and target cannot be the same!')
     const romDataBuffer = Buffer.alloc(2048)
     ;(await this.readSource()).copy(romDataBuffer)
     patches.forEach(patch =>
