@@ -17,6 +17,9 @@ describe('The RomWriter class', () => {
   it('should have the method setTargetFileLocation', () => {
     expect(RomWriter.prototype.setTargetFileLocation).toBeDefined()
   })
+  it('should have the method setRomSize', () => {
+    expect(RomWriter.prototype.setRomSize).toBeDefined()
+  })
   it('should have the method readSource', () => {
     expect(RomWriter.prototype.readSource).toBeDefined()
   })
@@ -31,7 +34,6 @@ describe('The setSourceFileLocation method', () => {
     const romWriter = new RomWriter()
 
     romWriter.setSourceFileLocation(examplePath)
-
     expect(romWriter.source).toBe(examplePath)
   })
 })
@@ -42,8 +44,15 @@ describe('The setTargetFileLocation method', () => {
     const romWriter = new RomWriter()
 
     romWriter.setTargetFileLocation(examplePath)
-
     expect(romWriter.target).toBe(examplePath)
+  })
+})
+
+describe('The setRomSize method', () => {
+  it('should set the romSize property', () => {
+    const romWriter = new RomWriter()
+    romWriter.setRomSize(1234)
+    expect(romWriter.romSize).toBe(1234)
   })
 })
 
@@ -104,6 +113,7 @@ describe('The applyPatches method', () => {
     newBuffer.write('1234', 0, 4, null)
     romWriter.setSourceFileLocation('source')
     romWriter.setTargetFileLocation('target')
+    romWriter.setRomSize(2048)
     romWriter.applyPatches([[0x00, [0x31, 0x32, 0x33, 0x34]]]).then(() => {
       expect(mockReadSource).toHaveBeenCalled()
       expect(mockWriteTarget).toHaveBeenCalledWith(newBuffer)
