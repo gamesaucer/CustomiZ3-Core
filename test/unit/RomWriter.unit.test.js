@@ -1,7 +1,14 @@
-/* global describe, it, expect, jest */
+/* global describe, it, expect, jest, beforeEach */
 
 import RomWriter from '../../module/RomWriter'
+import Patch from '../../module/Patch'
 import fs from 'fs'
+
+jest.mock('../../module/Patch.js')
+
+beforeEach(() => {
+  Patch.mockClear()
+})
 
 describe('The RomWriter class', () => {
   it('should allow instantiation', () => {
@@ -107,14 +114,16 @@ describe('The applyPatches method', () => {
   it('should write the patched source rom to the target file', done => {
     const romWriter = new RomWriter()
     const newBuffer = Buffer.alloc(2048)
+    const mockPatch = new Patch()
     const mockReadSource = jest.spyOn(romWriter, 'readSource').mockResolvedValue(newBuffer)
     const mockWriteTarget = jest.spyOn(romWriter, 'writeTarget').mockResolvedValue()
+    jest.spyOn(mockPatch, 'getPatches').mockReturnValue({ 0x00: [0x31, 0x32, 0x33, 0x34] })
 
     newBuffer.write('1234', 0, 4, null)
     romWriter.setSourceFileLocation('source')
     romWriter.setTargetFileLocation('target')
     romWriter.setRomSize(2048)
-    romWriter.applyPatches([[0x00, [0x31, 0x32, 0x33, 0x34]]]).then(() => {
+    romWriter.applyPatches(mockPatch).then(() => {
       expect(mockReadSource).toHaveBeenCalled()
       expect(mockWriteTarget).toHaveBeenCalledWith(newBuffer)
       done()
@@ -130,6 +139,6 @@ describe('The applyPatches method', () => {
     jest.spyOn(romWriter, 'writeTarget').mockResolvedValue()
     romWriter.setTargetFileLocation(examplePath)
     romWriter.setSourceFileLocation(examplePath)
-    expect(romWriter.applyPatches([])).rejects.toThrow()
+    expect(romWriter.applyPatches(new Patch())).rejects.toThrow()
   })
 })
