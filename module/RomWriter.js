@@ -9,6 +9,7 @@ import fs from 'fs'
 export default class RomWriter {
   /**
    * Configure which source file to read and patch.
+   * @public
    * @param {string} source - The source path
    */
   setSourceFileLocation (source) {
@@ -16,7 +17,17 @@ export default class RomWriter {
   }
 
   /**
+   * Configure how large the patched rom should be
+   * @public
+   * @param {string} size - The size in bytes
+   */
+  setRomSize (size) {
+    this.romSize = size
+  }
+
+  /**
    * Configure which target file to write the patched rom to.
+   * @public
    * @param {string} target - The source path
    */
   setTargetFileLocation (target) {
@@ -25,6 +36,7 @@ export default class RomWriter {
 
   /**
    * Read the rom set as the source.
+   * @private
    * @return {Promise} Resolves with file contents if successful.
    */
   readSource () {
@@ -37,7 +49,8 @@ export default class RomWriter {
   }
 
   /**
-   * Write the patched rom to the target file.
+   * Write the patched rom to the target file. For internal use.
+   * @private
    * @param {Buffer} buffer - The patched rom.
    * @return {Promise} Resolves if successful.
    */
@@ -52,11 +65,12 @@ export default class RomWriter {
 
   /**
    * Applies a given set of patches to the rom.
-   * @param {Array} patches - The set of patches.
+   * @public
+   * @param {Patch} patches - The set of patches.
    */
   async applyPatches (patches) {
     if (this.source === this.target) throw new Error('Source and target cannot be the same!')
-    const romDataBuffer = Buffer.alloc(2048)
+    const romDataBuffer = Buffer.alloc(this.romSize)
     ;(await this.readSource()).copy(romDataBuffer)
     patches.forEach(patch =>
       patch[1].forEach((value, index) =>
