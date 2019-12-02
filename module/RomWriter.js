@@ -72,9 +72,16 @@ export default class RomWriter {
     if (this.source === this.target) throw new Error('Source and target cannot be the same!')
     const romDataBuffer = Buffer.alloc(this.romSize)
     ;(await this.readSource()).copy(romDataBuffer)
-    patches.forEach(patch =>
+    const patchObject = patches.getPatches()
+    Object.keys(patchObject).forEach(address => {
+      address = Number(address)
+      patchObject[address].forEach((value, offset) => {
+        romDataBuffer.writeUInt8(value, address + offset)
+      })
+    })
+    /* patches.forEach(patch =>
       patch[1].forEach((value, index) =>
-        romDataBuffer.writeUInt8(value, index + patch[0])))
+        romDataBuffer.writeUInt8(value, index + patch[0]))) */
     await this.writeTarget(romDataBuffer)
   }
 }
