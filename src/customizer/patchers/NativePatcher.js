@@ -39,13 +39,14 @@ export default class NativePatcher extends Patcher {
    */
   async patch (source, target, ignoreChecksum) {
     if (source === target) throw new Error('Source and target cannot be the same!')
-    const data = await this.readSource(source, ignoreChecksum)
+    const rom = await this.readSource(source, ignoreChecksum)
+    const newRom = Buffer.from(rom)
     const changes = this.patchObject.getChanges()
     for (const target in changes) {
       changes[target].forEach((source, offset) => {
-        data.writeUInt8(data.readUInt8(source), Number(target) + offset)
+        newRom.writeUInt8(rom.readUInt8(source), Number(target) + offset)
       })
     }
-    return this.writeTarget(target, data)
+    return this.writeTarget(target, newRom)
   }
 }
