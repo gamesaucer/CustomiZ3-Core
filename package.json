@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "Zelda 3 ROM Customizer",
   "type": "module",
-  "main": "CustomiZ3.js",
+  "main": "lib/CustomiZ3.js",
   "scripts": {
     "lint": "standard",
     "integration": "jest int --passWithNoTests",
