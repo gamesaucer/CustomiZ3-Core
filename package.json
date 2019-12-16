@@ -1,0 +1,54 @@
+{
+  "name": "customiz3-core",
+  "version": "0.1.0",
+  "description": "Zelda 3 ROM Customizer",
+  "type": "module",
+  "main": "CustomiZ3.js",
+  "scripts": {
+    "lint": "standard",
+    "integration": "jest int --passWithNoTests",
+    "unit": "jest unit --passWithNoTests --coverage",
+    "coveralls": "shx cat ./coverage/lcov.info | coveralls",
+    "test": "npm run lint && npm run unit && npm run integration",
+    "jsdoc": "jsdoc -r -c .jsdoc.json",
+    "compile": "babel src --out-dir lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gamesaucer/CustomiZ3-Core.git"
+  },
+  "author": "Gamesaucer <gamesaucer@gmail.com> (https://github.com/gamesaucer)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gamesaucer/CustomiZ3-Core/issues"
+  },
+  "homepage": "https://github.com/gamesaucer/CustomiZ3-Core#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/cli": "^7.7.4",
+    "@babel/core": "^7.7.4",
+    "@babel/node": "^7.7.4",
+    "@babel/preset-env": "^7.7.4",
+    "coveralls": "^3.0.9",
+    "jest": "^24.9.0",
+    "jsdoc": "^3.6.3",
+    "shx": "^0.3.2",
+    "standard": "^14.3.1"
+  },
+  "babel": {
+    "presets": [
+      [
+        "@babel/preset-env",
+        {
+          "targets": {
+            "node": "current"
+          }
+        }
+      ]
+    ],
+    "plugins": []
+  },
+  "files": [
+    "/lib"
+  ]
+}

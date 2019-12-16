@@ -1,0 +1,15 @@
+{
+  "records":[
+    "waterfall",
+    "hylia",
+    "swamp",
+    "witch",
+    "southeast",
+    "northwest",
+    "darksoutheast",
+    "darkwitch"
+  ],
+  "columns":11,
+  "spacing":[19,19,19,19,19,19,19,19,19,193],
+  "size":2
+}

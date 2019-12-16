@@ -1,0 +1,26 @@
+{
+  "records": [
+    "skullwoodsbush",
+    "skullwoodsmiddle",
+    "skullwoodsmiddle2",
+    "skullwoodsright",
+    "skullwoodsright2",
+    "skullwoodsleft",
+    "skullwoodsleft2",
+    "thieveshideout",
+    "ganon",
+    "ganon2",
+    "ganon3",
+    "faerie",
+    "uncle",
+    "batcave",
+    "batcave2",
+    "treecave",
+    "well",
+    "well2",
+    "sanctuary"
+  ],
+  "columns":3,
+  "spacing":0,
+  "size":[2,2,1]
+}
