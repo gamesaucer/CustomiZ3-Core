@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import HolesDomain from './HolesDomain'
-import FlySitesDomain from './FlysitesDomain'
+import FlySitesDomain from './FlySitesDomain'
 import WhirlpoolsDomain from './WhirlpoolsDomain'
 
 /**

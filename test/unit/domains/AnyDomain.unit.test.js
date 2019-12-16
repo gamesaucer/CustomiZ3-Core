@@ -3,7 +3,7 @@
 import Domain from '../../../src/domains/Domain'
 import HolesDomain from '../../../src/domains/HolesDomain'
 import WhirlpoolsDomain from '../../../src/domains/WhirlpoolsDomain'
-import FlySitesDomain from '../../../src/domains/FlysitesDomain'
+import FlySitesDomain from '../../../src/domains/FlySitesDomain'
 
 [HolesDomain, WhirlpoolsDomain, FlySitesDomain].forEach(AnyDomain => {
   describe(`The ${AnyDomain.name} class`, () => {
