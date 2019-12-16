@@ -4,7 +4,8 @@ import path from 'path'
 import Domain from './Domain'
 
 /**
- * Class representing the Domain for holes.
+ * @classdesc Class representing the Domain for holes.
+ * @class
  */
 export default class HolesDomain extends Domain {
   /**

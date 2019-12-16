@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 
 /**
- * Class representing the Patch object.
+ * @classdesc Class representing the Patch object.
+ * @class
  */
 export default class Patch {
   /**

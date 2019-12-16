@@ -27,7 +27,7 @@ jest.mock('../../../src/customizer/Patch', () => {
 })
 
 jest.mock('../../../src/customizer/patchers/PatcherFactory', () => jest.fn(() => {}))
-const mockGetChanges = jest.fn(() => ({ change: ['this'], literal: [48] }))
+const mockGetChanges = jest.fn(() => ({ change: ['this', null], literal: [48, null] }))
 jest.mock('../../../src/domains/Domain', () => {
   return jest.fn().mockImplementation(() => {
     return {
@@ -41,9 +41,9 @@ jest.mock('../../../src/domains/Domain', () => {
             'this',
             'literal'
           ],
-          columns: 1,
+          columns: 2,
           spacing: [69, 69],
-          size: [1]
+          size: [1, 1]
         }
       }
     }
@@ -63,8 +63,8 @@ describe('The PatchFactory method', () => {
     await PatchFactory({ testDomain: new Domain() }, mockVersion)
 
     expect(mockSetVersion).toHaveBeenCalledWith(mockVersion)
-    expect(mockAddChange).toHaveBeenCalledWith(42, 112)
-    expect(mockAddChange).toHaveBeenCalledWith(182, '30')
+    expect(mockAddChange).toHaveBeenCalledWith(42, 113)
+    expect(mockAddChange).toHaveBeenCalledWith(184, '30')
     done()
   })
   it('should provide the PatcherFactory with the Patch.', async done => {
@@ -74,17 +74,17 @@ describe('The PatchFactory method', () => {
     done()
   })
   it('should read non-number literals as bytes.', async done => {
-    mockGetChanges.mockImplementation(() => { return { literal: ['0'] } })
+    mockGetChanges.mockImplementation(() => { return { literal: ['0', null] } })
     await PatchFactory({ testDomain: new Domain() }, mockVersion)
 
-    expect(mockAddChange).toHaveBeenCalledWith(182, '30')
+    expect(mockAddChange).toHaveBeenCalledWith(184, '30')
     done()
   })
   it('should throw away excess bytes in a literal.', async done => {
-    mockGetChanges.mockImplementation(() => { return { literal: [99999] } })
+    mockGetChanges.mockImplementation(() => { return { literal: [99999, null] } })
     await PatchFactory({ testDomain: new Domain() }, mockVersion)
 
-    expect(mockAddChange).toHaveBeenCalledWith(182, '9f')
+    expect(mockAddChange).toHaveBeenCalledWith(184, '9f')
     done()
   })
 })

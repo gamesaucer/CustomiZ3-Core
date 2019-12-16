@@ -1,9 +1,11 @@
 /* global describe, it, expect, jest, */
 
-import HolesDomain from '../../../src/domains/HolesDomain'
 import Domain from '../../../src/domains/Domain'
+import HolesDomain from '../../../src/domains/HolesDomain'
+import WhirlpoolsDomain from '../../../src/domains/WhirlpoolsDomain'
+import FlySitesDomain from '../../../src/domains/FlysitesDomain'
 
-[HolesDomain].forEach(AnyDomain => {
+[HolesDomain, WhirlpoolsDomain, FlySitesDomain].forEach(AnyDomain => {
   describe(`The ${AnyDomain.name} class`, () => {
     it('should allow instantiation', () => {
       const domain = new AnyDomain()

@@ -4,6 +4,8 @@
     "address":32732
   },
   "offset": {
-    "holes":899072
+    "flysites":92901,
+    "holes":899072,
+    "whirlpools":92919
   }
 }

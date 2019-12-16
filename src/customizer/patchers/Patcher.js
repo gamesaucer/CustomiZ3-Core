@@ -4,7 +4,8 @@ import { promises as fs } from 'fs'
 import crypto from 'crypto'
 
 /**
- * Abstract class representing the Patcher object.
+ * @classdesc Abstract class representing the Patcher object.
+ * @class
  */
 export default class Patcher {
   /**

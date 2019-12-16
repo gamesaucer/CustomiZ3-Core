@@ -1,7 +1,5 @@
 #!/usr/bin/env node
 
-// import VersionFactory from './versions/VersionFactory'
-// import DomainFactory from './domains/DomainFactory'
 import PatcherFactory from './patchers/PatcherFactory'
 import Patch from './Patch'
 

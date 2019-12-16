@@ -3,7 +3,8 @@
 import { promises as fs } from 'fs'
 
 /**
- * Default implementation for a Domain.
+ * @classdesc Abstract class representing the Domain object.
+ * @class
  */
 export default class Domain {
   /**

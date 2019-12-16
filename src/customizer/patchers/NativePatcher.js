@@ -3,7 +3,8 @@
 import Patcher from './Patcher'
 
 /**
- * Class representing the NativePatcher object.
+ * @classdesc Class representing the NativePatcher object.
+ * @class
  */
 export default class NativePatcher extends Patcher {
   /**

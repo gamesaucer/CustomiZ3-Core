@@ -3,9 +3,13 @@
 import DomainFactory from '../../../src/domains/DomainFactory'
 import Domain from '../../../src/domains/Domain'
 import HolesDomain from '../../../src/domains/HolesDomain'
+import FlySitesDomain from '../../../src/domains/FlysitesDomain'
+import WhirlpoolsDomain from '../../../src/domains/WhirlpoolsDomain'
 
 const domains = {
-  holes: HolesDomain
+  holes: HolesDomain,
+  flysites: FlySitesDomain,
+  whirlpools: WhirlpoolsDomain
 }
 
 describe('The DomainFactory function', () => {
