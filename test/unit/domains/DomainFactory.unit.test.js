@@ -3,7 +3,7 @@
 import DomainFactory from '../../../src/domains/DomainFactory'
 import Domain from '../../../src/domains/Domain'
 import HolesDomain from '../../../src/domains/HolesDomain'
-import FlySitesDomain from '../../../src/domains/FlysitesDomain'
+import FlySitesDomain from '../../../src/domains/FlySitesDomain'
 import WhirlpoolsDomain from '../../../src/domains/WhirlpoolsDomain'
 
 const domains = {
