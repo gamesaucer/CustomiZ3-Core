@@ -1,6 +1,13 @@
 # Local test files
 test/local
 
+# NPM build
+lib
+
+# Specifically excluded folders
+_*
+!__mocks__
+
 # Docs
 docs
 
