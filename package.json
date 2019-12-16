@@ -3,15 +3,15 @@
   "version": "0.1.0",
   "description": "Zelda 3 ROM Customizer",
   "type": "module",
-  "main": "module.js",
+  "main": "CustomiZ3.js",
   "scripts": {
-    "start": "node module.js",
     "lint": "standard",
-    "component": "jest comp --passWithNoTests",
+    "integration": "jest int --passWithNoTests",
     "unit": "jest unit --passWithNoTests --coverage",
     "coveralls": "shx cat ./coverage/lcov.info | coveralls",
     "test": "npm run lint && npm run unit && npm run integration",
-    "jsdoc": "jsdoc -r -c .jsdoc.json"
+    "jsdoc": "jsdoc -r -c .jsdoc.json",
+    "compile": "babel src --out-dir lib"
   },
   "repository": {
     "type": "git",
@@ -47,5 +47,8 @@
       ]
     ],
     "plugins": []
-  }
+  },
+  "files": [
+    "/lib"
+  ]
 }

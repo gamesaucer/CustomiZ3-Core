@@ -1,0 +1,16 @@
+{
+  "records":[
+    "deathmountain",
+    "witch",
+    "kakariko",
+    "linkshouse",
+    "eastern",
+    "desert",
+    "swamp",
+    "hylia",
+    "ganon"
+  ],
+  "columns":10,
+  "spacing":17,
+  "size":2
+}
