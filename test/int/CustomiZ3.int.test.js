@@ -53,7 +53,7 @@ describe('The getDomainList function', () => {
 describe('The getPatcher function', () => {
   it('', async done => {
     const mockRom = Buffer.alloc(1024 * 1024)
-    mockRom.writeUInt8(0xab, 44 + 899072)
+    mockRom.writeUInt8(0x7b, 0xdb854)
     const mockWriteFile = jest.spyOn(fs, 'writeFile').mockResolvedValue()
     const mockReaddir = jest.spyOn(fs, 'readdir').mockResolvedValue(['1'])
     const mockReadFile = jest.spyOn(fs, 'readFile').mockResolvedValueOnce(
@@ -63,7 +63,7 @@ describe('The getPatcher function', () => {
       '"batcave2","treecave","well","well2","sanctuary"],"columns":3,"spacing":0,' +
       '"size":[2,2,1]}'
     ).mockResolvedValueOnce(mockRom).mockResolvedValueOnce(
-      '{"checksum":{"md5":"8f0c6a4003f70e392ea7e04a40a502e7",' +
+      '{"checksum":{"md5":"3fbfae4b9eafd386a4377f78ae202466",' +
       '"address":32732},"offset": {"holes":899072}}'
     ).mockResolvedValueOnce(mockRom)
     const changes = {
@@ -81,10 +81,10 @@ describe('The getPatcher function', () => {
     await patcher.patch('1', '2')
 
     const newRom = Buffer.alloc(1024 * 1024)
-    newRom.writeUInt8(0xab, 44 + 899072)
-    newRom.writeUInt8(0xab, 64 + 899072)
-    newRom.writeUInt16LE(0x354, 32732 + 2)
-    newRom.writeUInt16LE(~0x354 & 0xffff, 32732)
+    newRom.writeUInt8(0x7b, 0xdb858)
+    newRom.writeUInt8(0x7b, 0xdb854)
+    newRom.writeUInt16LE(0x2f4, 32732 + 2)
+    newRom.writeUInt16LE(~0x2f4 & 0xffff, 32732)
 
     expect(mockWriteFile).toHaveBeenCalledWith('2', newRom, { encoding: null })
 
