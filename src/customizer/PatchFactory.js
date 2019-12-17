@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
-import PatcherFactory from './patchers/PatcherFactory'
-import Patch from './Patch'
+const PatcherFactory = require('./patchers/PatcherFactory')
+const Patch = require('./Patch')
 
 /**
  * Get a Patch.
@@ -125,4 +125,4 @@ function patchColumn (source, target, length) {
   return patchData
 }
 
-export default PatchFactory
+module.exports = PatchFactory

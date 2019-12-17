@@ -1,9 +1,8 @@
 {
-  "name": "customiz3-core",
-  "version": "0.1.0",
+  "name": "@gamesaucer/customiz3-core",
+  "version": "1.0.4",
   "description": "Zelda 3 ROM Customizer",
-  "type": "module",
-  "main": "lib/CustomiZ3.js",
+  "main": "./lib/CustomiZ3.js",
   "scripts": {
     "lint": "standard",
     "integration": "jest int --passWithNoTests",
@@ -49,6 +48,7 @@
     "plugins": []
   },
   "files": [
+    "index.js",
     "/lib"
   ]
 }

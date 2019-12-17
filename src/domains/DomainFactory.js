@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 
-import HolesDomain from './HolesDomain'
-import FlySitesDomain from './FlySitesDomain'
-import WhirlpoolsDomain from './WhirlpoolsDomain'
+const HolesDomain = require('./HolesDomain')
+const FlySitesDomain = require('./FlySitesDomain')
+const WhirlpoolsDomain = require('./WhirlpoolsDomain')
 
 /**
  * Get a Domain based on its name.
@@ -10,7 +10,7 @@ import WhirlpoolsDomain from './WhirlpoolsDomain'
  * @return {Domain} The requested Domain.
  * @public
  */
-export default async function DomainFactory (domain) {
+async function DomainFactory (domain) {
   var domainInstance
   switch (domain) {
     case 'holes':
@@ -28,3 +28,5 @@ export default async function DomainFactory (domain) {
   await domainInstance.init()
   return domainInstance
 }
+
+module.exports = DomainFactory

@@ -1,12 +1,12 @@
 #!/usr/bin/env node
 
-import { promises as fs } from 'fs'
+const fs = require('fs').promises
 
 /**
  * @classdesc Abstract class representing the Domain object.
  * @class
  */
-export default class Domain {
+class Domain {
   /**
    * Throw an error if not called via super() since the class is abstract.
    * @private
@@ -109,3 +109,5 @@ export default class Domain {
     return newArray
   }
 }
+
+module.exports = Domain

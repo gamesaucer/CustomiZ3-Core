@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import DomainFactory from './DomainFactory'
+const DomainFactory = require('./DomainFactory')
 
 /**
  * Get a list of Domains based on a list of desired changes.
@@ -8,7 +8,7 @@ import DomainFactory from './DomainFactory'
  * @return {Object} The requested list of Domains.
  * @public
  */
-export default async function DomainListFactory (changes) {
+async function DomainListFactory (changes) {
   const domainNames = Object.keys(changes)
   const domainArray = await Promise.all(domainNames.map(domain => DomainFactory(domain)))
   const domains = {}
@@ -18,3 +18,5 @@ export default async function DomainListFactory (changes) {
   })
   return domains
 }
+
+module.exports = DomainListFactory

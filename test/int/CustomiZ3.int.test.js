@@ -1,10 +1,9 @@
 /* global describe, it, expect, jest */
 
-import { promises as fs } from 'fs'
-
-import CustomiZ3 from '../../src/CustomiZ3'
-import Domain from '../../src/domains/Domain'
-import Patcher from '../../src/customizer/patchers/Patcher'
+const fs = require('fs').promises
+const CustomiZ3 = require('../../src/CustomiZ3')
+const Domain = require('../../src/domains/Domain')
+const Patcher = require('../../src/customizer/patchers/Patcher')
 
 describe('The getRomVersion function', () => {
   it('should calculate the checksum of the provided rom file and return the corresponding version file', async done => {

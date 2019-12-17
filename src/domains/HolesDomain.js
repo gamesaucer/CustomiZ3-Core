@@ -1,13 +1,13 @@
 #!/usr/bin/env node
 
-import path from 'path'
-import Domain from './Domain'
+const path = require('path')
+const Domain = require('./Domain')
 
 /**
  * @classdesc Class representing the Domain for holes.
  * @class
  */
-export default class HolesDomain extends Domain {
+class HolesDomain extends Domain {
   /**
    * Read the holes data file.
    * @public
@@ -40,3 +40,5 @@ export default class HolesDomain extends Domain {
     return changes
   }
 }
+
+module.exports = HolesDomain

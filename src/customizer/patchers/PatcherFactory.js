@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import NativePatcherFactory from './NativePatcherFactory'
+const NativePatcherFactory = require('./NativePatcherFactory')
 
 /**
   * Get a Patcher.
@@ -8,7 +8,7 @@ import NativePatcherFactory from './NativePatcherFactory'
   * @param {*} type - The type of Patcher to get.
   * @returns {Patcher|Function} A Patcher object or a more specific factory function.
   */
-export default async function PatcherFactory (patch = null, type = null) {
+async function PatcherFactory (patch = null, type = null) {
   if (patch === null && type === null) return PatcherFactory
   if (type === null) return PatcherFactory.bind(this, patch)
   var factoryFunction
@@ -20,3 +20,5 @@ export default async function PatcherFactory (patch = null, type = null) {
   }
   return patch === null ? factoryFunction : factoryFunction(patch)
 }
+
+module.exports = PatcherFactory

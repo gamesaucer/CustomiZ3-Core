@@ -1,8 +1,8 @@
 /* global describe, it, expect, jest */
 
-import HolesDomain from '../../../src/domains/HolesDomain'
-import Domain from '../../../src/domains/Domain'
-import { promises as fs } from 'fs'
+const fs = require('fs').promises
+const HolesDomain = require('../../../src/domains/HolesDomain')
+const Domain = require('../../../src/domains/Domain')
 
 const mockFormat = JSON.stringify({
   records: [

@@ -1,14 +1,14 @@
 #!/usr/bin/env node
 
-import PatchFactory from './customizer/PatchFactory'
-import VersionFactory from './versions/VersionFactory'
-import DomainListFactory from './domains/DomainListFactory'
+/* const PatchFactory = require('./customizer/PatchFactory')
+const VersionFactory = require('./versions/VersionFactory')
+const DomainListFactory = require('./domains/DomainListFactory') */
 
-const getPatcher = PatchFactory
-const getRomVersion = VersionFactory
-const getDomainList = DomainListFactory
+module.exports.getPatcher = require('./customizer/PatchFactory')
+module.exports.getRomVersion = require('./versions/VersionFactory')
+module.exports.getDomainList = require('./domains/DomainListFactory')
 
-export {
+/* export {
   getPatcher,
   getRomVersion,
   getDomainList
@@ -18,4 +18,4 @@ export default {
   getPatcher,
   getRomVersion,
   getDomainList
-}
+} */

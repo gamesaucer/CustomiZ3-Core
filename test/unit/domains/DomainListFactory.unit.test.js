@@ -1,7 +1,7 @@
 /* global describe, it, expect, jest, beforeEach */
 
-import DomainListFactory from '../../../src/domains/DomainListFactory'
-import DomainFactory from '../../../src/domains/DomainFactory'
+const DomainListFactory = require('../../../src/domains/DomainListFactory')
+const DomainFactory = require('../../../src/domains/DomainFactory')
 
 const mockAddChanges = jest.fn()
 jest.mock('../../../src/domains/DomainFactory', () => {

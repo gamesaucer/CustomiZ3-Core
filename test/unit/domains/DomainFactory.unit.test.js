@@ -1,10 +1,10 @@
 /* global describe, it, expect, jest */
 
-import DomainFactory from '../../../src/domains/DomainFactory'
-import Domain from '../../../src/domains/Domain'
-import HolesDomain from '../../../src/domains/HolesDomain'
-import FlySitesDomain from '../../../src/domains/FlySitesDomain'
-import WhirlpoolsDomain from '../../../src/domains/WhirlpoolsDomain'
+const DomainFactory = require('../../../src/domains/DomainFactory')
+const Domain = require('../../../src/domains/Domain')
+const HolesDomain = require('../../../src/domains/HolesDomain')
+const FlySitesDomain = require('../../../src/domains/FlySitesDomain')
+const WhirlpoolsDomain = require('../../../src/domains/WhirlpoolsDomain')
 
 const domains = {
   holes: HolesDomain,

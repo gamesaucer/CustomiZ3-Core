@@ -1,9 +1,9 @@
 /* global describe, it, expect, jest, beforeEach */
 
-import PatchFactory from '../../../src/customizer/PatchFactory'
-import PatcherFactory from '../../../src/customizer/patchers/PatcherFactory'
-import Patch from '../../../src/customizer/Patch'
-import Domain from '../../../src/domains/Domain'
+const PatchFactory = require('../../../src/customizer/PatchFactory')
+const PatcherFactory = require('../../../src/customizer/patchers/PatcherFactory')
+const Patch = require('../../../src/customizer/Patch')
+const Domain = require('../../../src/domains/Domain')
 
 const mockVersion = {
   checksum: {

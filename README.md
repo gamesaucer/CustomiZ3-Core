@@ -18,25 +18,27 @@ TODO
 Use CustomiZ3 in a project as follows:
 
 ```JavaScript
-const { getPatcher, getRomVersion, getDomainList } = require('CustomiZ3')
+const CustomiZ3 = require('@gamesaucer/customiz3-core')
+// or:
+const { getPatcher, getRomVersion, getDomainList } = require('@gamesaucer/customiz3-core')
 ```
 
 Retrieve the version data of a rom by calling `getRomVersion` and providing the path to the rom file:
 
 ```JavaScript
-const version = await getRomVersion('path/to/rom')
+const version = await CustomiZ3.getRomVersion('path/to/rom')
 ```
 
 Get a list of Domain objects for a set of changes by calling `getDomainList` and providing the changes:
 
 ```JavaScript
-const domainList = await getDomainList(changes)
+const domainList = await CustomiZ3.getDomainList(changes)
 ```
 
 Get a PatcherFactory by calling `getPatcher` and providing the Domain list and the rom version. Then call the PatcherFactory with the desired type of patch to get a Patcher.
 
 ```JavaScript
-const patcherFactory = await getPatcher(domainList, version)
+const patcherFactory = await CustomiZ3.getPatcher(domainList, version)
 const patcher = await patcherFactory('native')
 ```
 

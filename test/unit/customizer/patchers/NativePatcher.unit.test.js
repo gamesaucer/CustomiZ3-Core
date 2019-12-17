@@ -1,7 +1,7 @@
 /* global describe, it, expect, jest, beforeEach */
 
-import NativePatcher from '../../../../src/customizer/patchers/NativePatcher'
-import Patcher from '../../../../src/customizer/patchers/Patcher'
+const Patcher = require('../../../../src/customizer/patchers/Patcher')
+const NativePatcher = require('../../../../src/customizer/patchers/NativePatcher')
 
 const mockWriteTarget = jest.fn()
 const mockReadSource = jest.fn()
@@ -19,6 +19,7 @@ const mockVersion = {
 
 describe('The NativePatcher class', () => {
   it('should allow instantiation', () => {
+    // console.log(require('../../../../src/customizer/patchers/Patcher')())
     expect(new NativePatcher()).toBeTruthy()
   })
   it('should extend Patcher', () => {

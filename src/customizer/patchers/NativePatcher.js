@@ -1,12 +1,12 @@
 #!/usr/bin/env node
 
-import Patcher from './Patcher'
+const Patcher = require('./Patcher')
 
 /**
  * @classdesc Class representing the NativePatcher object.
  * @class
  */
-export default class NativePatcher extends Patcher {
+class NativePatcher extends Patcher {
   /**
    * Compute and apply the checksum to the data and write the data to a target file.
    * @param {String} path - The path of the file to write to.
@@ -50,3 +50,5 @@ export default class NativePatcher extends Patcher {
     return this.writeTarget(target, newRom)
   }
 }
+
+module.exports = NativePatcher
