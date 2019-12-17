@@ -1,12 +1,12 @@
 #!/usr/bin/env node
 
-import { promises as fs } from 'fs'
+const fs = require('fs').promises
 
 /**
  * @classdesc Abstract class representing the Domain object.
  * @class
  */
-export default class Domain {
+class Domain {
   /**
    * Throw an error if not called via super() since the class is abstract.
    * @private
@@ -77,7 +77,7 @@ export default class Domain {
     if (!(this.dataFormat.size instanceof Array)) this.dataFormat.size = [this.dataFormat.size]
     if (!(this.dataFormat.spacing instanceof Array)) this.dataFormat.spacing = [this.dataFormat.spacing]
     this.dataFormat.size = this.padArrayToLength(this.dataFormat.size, this.dataFormat.columns)
-    this.dataFormat.spacing = this.padArrayToLength(this.dataFormat.spacing, this.dataFormat.records.length - 1)
+    this.dataFormat.spacing = this.padArrayToLength(this.dataFormat.spacing, this.dataFormat.columns - 1)
   }
 
   /**
@@ -109,3 +109,5 @@ export default class Domain {
     return newArray
   }
 }
+
+module.exports = Domain

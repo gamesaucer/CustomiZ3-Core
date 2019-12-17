@@ -1,13 +1,13 @@
 #!/usr/bin/env node
 
-import path from 'path'
-import Domain from './Domain'
+const path = require('path')
+const Domain = require('./Domain')
 
 /**
  * @classdesc Class representing the Domain for whirlpools.
  * @class
  */
-export default class WhirlpoolsDomain extends Domain {
+class WhirlpoolsDomain extends Domain {
   /**
    * Read the whirlpools data file.
    * @public
@@ -16,3 +16,5 @@ export default class WhirlpoolsDomain extends Domain {
     await super.init(path.join(__dirname, 'domaindata', 'whirlpools.json'))
   }
 }
+
+module.exports = WhirlpoolsDomain

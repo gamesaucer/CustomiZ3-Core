@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
-import PatcherFactory from './patchers/PatcherFactory'
-import Patch from './Patch'
+const PatcherFactory = require('./patchers/PatcherFactory')
+const Patch = require('./Patch')
 
 /**
  * Get a Patch.
@@ -35,21 +35,19 @@ async function PatchFactory (domains, version) {
  * @private
  */
 function getFormatOffsets (format, versionOffset) {
-  const sum = (total, value) => total + value
-  const recordOffsets = []
+  var baseColumnOffset = [0]
+  for (const column in format.spacing) {
+    baseColumnOffset[Number(column) + 1] =
+      format.size[column] * format.records.length + format.spacing[column] + baseColumnOffset[column]
+  }
+  baseColumnOffset = baseColumnOffset.map(val => val + versionOffset)
+  var recordOffsets = []
   for (const record in format.records) {
-    const columnOffsets = []
-    const baseColumnOffset =
-      versionOffset +
-      format.size.reduce(sum) * record +
-      [0, ...format.spacing].slice(0, Number(record) + 1).reduce(sum)
-
-    for (const column in format.size) {
-      columnOffsets.push(
-        baseColumnOffset +
-        [0, ...format.size].slice(0, Number(column) + 1).reduce(sum))
+    const offset = []
+    for (const column in baseColumnOffset) {
+      offset.push(baseColumnOffset[column] + record * format.size[column])
     }
-    recordOffsets.push(columnOffsets)
+    recordOffsets.push(offset)
   }
   return recordOffsets
 }
@@ -125,4 +123,4 @@ function patchColumn (source, target, length) {
   return patchData
 }
 
-export default PatchFactory
+module.exports = PatchFactory

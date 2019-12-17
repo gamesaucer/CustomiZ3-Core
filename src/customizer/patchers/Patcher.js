@@ -1,13 +1,13 @@
 #!/usr/bin/env node
 
-import { promises as fs } from 'fs'
-import crypto from 'crypto'
+const fs = require('fs').promises
+const crypto = require('crypto')
 
 /**
  * @classdesc Abstract class representing the Patcher object.
  * @class
  */
-export default class Patcher {
+class Patcher {
   /**
    * Throw an error if not called via super(), since the class is abstract.
    * @private
@@ -62,3 +62,5 @@ export default class Patcher {
     throw new Error('The patch method has no default behaviour and should be overridden.')
   }
 }
+
+module.exports = Patcher

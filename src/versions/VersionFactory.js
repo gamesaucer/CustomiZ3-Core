@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 
-import { promises as fs } from 'fs'
-import path from 'path'
-import crypto from 'crypto'
+const path = require('path')
+const crypto = require('crypto')
+const fs = require('fs').promises
 
 const versiondir = 'versiondata'
 
@@ -52,4 +52,4 @@ VersionFactory.getVersionList = async function () {
     .map(filename => path.parse(filename).name)
 }
 
-export default VersionFactory
+module.exports = VersionFactory

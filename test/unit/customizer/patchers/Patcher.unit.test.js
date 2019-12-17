@@ -1,7 +1,7 @@
 /* global describe, it, expect, jest, beforeEach */
 
-import Patcher from '../../../../src/customizer/patchers/Patcher'
-import { promises as fs } from 'fs'
+const fs = require('fs').promises
+const Patcher = require('../../../../src/customizer/patchers/Patcher')
 
 const MockPatcher = class extends Patcher {}
 const mockVersion = { checksum: { md5: 'mockHex' } }
