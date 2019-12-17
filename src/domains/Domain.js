@@ -77,7 +77,7 @@ class Domain {
     if (!(this.dataFormat.size instanceof Array)) this.dataFormat.size = [this.dataFormat.size]
     if (!(this.dataFormat.spacing instanceof Array)) this.dataFormat.spacing = [this.dataFormat.spacing]
     this.dataFormat.size = this.padArrayToLength(this.dataFormat.size, this.dataFormat.columns)
-    this.dataFormat.spacing = this.padArrayToLength(this.dataFormat.spacing, this.dataFormat.records.length - 1)
+    this.dataFormat.spacing = this.padArrayToLength(this.dataFormat.spacing, this.dataFormat.columns - 1)
   }
 
   /**

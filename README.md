@@ -1,7 +1,7 @@
 # CustomiZ3-Core
 
 [![Build Status](https://travis-ci.org/gamesaucer/CustomiZ3-Core.svg?branch=master)](https://travis-ci.org/gamesaucer/CustomiZ3-Core) 
-[![Coverage Status](https://coveralls.io/repos/github/gamesaucer/CustomiZ3-Core/badge.svg?branch=master)](https://coveralls.io/github/gamesaucer/CustomiZ3-Core?branch=master) [![Code Style: Standard](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[![Coverage Status](https://coveralls.io/repos/github/gamesaucer/CustomiZ3-Core/badge.svg?branch=master)](https://coveralls.io/github/gamesaucer/CustomiZ3-Core?branch=master) [![NPM Version](https://img.shields.io/npm/v/@gamesaucer/customiz3-core)](https://www.npmjs.com/package/@gamesaucer/customiz3-core) [![Code Style: Standard](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 ## Description
 
@@ -11,7 +11,11 @@ The tool has an internal map of where to find certain game data, and by providin
 
 ## Installation
 
-TODO
+You can use Node package manager to install CustomiZ3.
+
+```cmd
+npm install @gamesaucer/customiz3-core
+```
 
 ## Usage
 

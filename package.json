@@ -1,6 +1,6 @@
 {
   "name": "@gamesaucer/customiz3-core",
-  "version": "1.0.4",
+  "version": "1.0.6",
   "description": "Zelda 3 ROM Customizer",
   "main": "./lib/CustomiZ3.js",
   "scripts": {
@@ -10,7 +10,7 @@
     "coveralls": "shx cat ./coverage/lcov.info | coveralls",
     "test": "npm run lint && npm run unit && npm run integration",
     "jsdoc": "jsdoc -r -c .jsdoc.json",
-    "compile": "babel src --out-dir lib"
+    "compile": "babel src --out-dir lib --copy-files"
   },
   "repository": {
     "type": "git",
