@@ -4,7 +4,7 @@
  * @classdesc Class representing the Patch object.
  * @class
  */
-export default class Patch {
+class Patch {
   /**
    * Initialise instance fields
    * @public
@@ -75,3 +75,5 @@ export default class Patch {
     return combinedChanges
   }
 }
+
+module.exports = Patch

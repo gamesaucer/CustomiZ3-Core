@@ -1,8 +1,8 @@
 /* global describe, it, expect, jest, */
 
-import VersionFactory from '../../../src/versions/VersionFactory'
-import { promises as fs } from 'fs'
-import crypto from 'crypto'
+const fs = require('fs').promises
+const crypto = require('crypto')
+const VersionFactory = require('../../../src/versions/VersionFactory')
 
 const mockVersion = {
   checksum: {

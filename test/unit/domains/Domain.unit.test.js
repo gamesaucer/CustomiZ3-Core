@@ -1,7 +1,7 @@
 /* global describe, it, expect, jest, */
 
-import Domain from '../../../src/domains/Domain'
-import { promises as fs } from 'fs'
+const fs = require('fs').promises
+const Domain = require('../../../src/domains/Domain')
 
 class TestDomain extends Domain {}
 

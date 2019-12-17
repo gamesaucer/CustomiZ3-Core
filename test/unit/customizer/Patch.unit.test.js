@@ -1,6 +1,6 @@
 /* global describe, it, expect */
 
-import Patch from '../../../src/customizer/Patch'
+const Patch = require('../../../src/customizer/Patch')
 
 describe('The Patch class', () => {
   it('should allow instantiation.', () => {

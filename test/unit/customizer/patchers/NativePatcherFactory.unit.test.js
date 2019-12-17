@@ -1,8 +1,8 @@
 /* global describe, it, expect, jest */
 
-import NativePatcherFactory from '../../../../src/customizer/patchers/NativePatcherFactory'
-import NativePatcher from '../../../../src/customizer/patchers/NativePatcher'
-import Patch from '../../../../src/customizer/Patch'
+const NativePatcherFactory = require('../../../../src/customizer/patchers/NativePatcherFactory')
+const NativePatcher = require('../../../../src/customizer/patchers/NativePatcher')
+const Patch = require('../../../../src/customizer/Patch')
 
 jest.mock('../../../../src/customizer/Patch')
 jest.mock('../../../../src/customizer/patchers/NativePatcher')

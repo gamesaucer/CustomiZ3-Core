@@ -1,9 +1,9 @@
 /* global describe, it, expect, jest, beforeEach */
 
-import PatcherFactory from '../../../../src/customizer/patchers/PatcherFactory'
-import NativePatcherFactory from '../../../../src/customizer/patchers/NativePatcherFactory'
-import Patcher from '../../../../src/customizer/patchers/Patcher'
-import Patch from '../../../../src/customizer/Patch'
+const PatcherFactory = require('../../../../src/customizer/patchers/PatcherFactory')
+const NativePatcherFactory = require('../../../../src/customizer/patchers/NativePatcherFactory')
+const Patcher = require('../../../../src/customizer/patchers/Patcher')
+const Patch = require('../../../../src/customizer/Patch')
 
 const MockPatcher = class extends Patcher {}
 

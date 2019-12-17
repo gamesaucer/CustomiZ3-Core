@@ -1,11 +1,11 @@
 /* global describe, it, expect, jest, */
 
-import Domain from '../../../src/domains/Domain'
-import HolesDomain from '../../../src/domains/HolesDomain'
-import WhirlpoolsDomain from '../../../src/domains/WhirlpoolsDomain'
-import FlySitesDomain from '../../../src/domains/FlySitesDomain'
+const Domain = require('../../../src/domains/Domain')
+const HolesDomain = require('../../../src/domains/HolesDomain')
+const WhirlpoolsDomain = require('../../../src/domains/WhirlpoolsDomain')
+const FlySitesDomain = require('../../../src/domains/FlySitesDomain')
 
-[HolesDomain, WhirlpoolsDomain, FlySitesDomain].forEach(AnyDomain => {
+;[HolesDomain, WhirlpoolsDomain, FlySitesDomain].forEach(AnyDomain => {
   describe(`The ${AnyDomain.name} class`, () => {
     it('should allow instantiation', () => {
       const domain = new AnyDomain()
