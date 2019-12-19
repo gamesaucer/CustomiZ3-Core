@@ -1,6 +1,6 @@
 {
   "name": "@gamesaucer/customiz3-core",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Zelda 3 ROM Customizer",
   "main": "./lib/CustomiZ3.js",
   "scripts": {
