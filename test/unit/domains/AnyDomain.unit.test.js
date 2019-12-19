@@ -4,8 +4,9 @@ const Domain = require('../../../src/domains/Domain')
 const HolesDomain = require('../../../src/domains/HolesDomain')
 const WhirlpoolsDomain = require('../../../src/domains/WhirlpoolsDomain')
 const FlySitesDomain = require('../../../src/domains/FlySitesDomain')
+const EntrancesDomain = require('../../../src/domains/EntrancesDomain')
 
-;[HolesDomain, WhirlpoolsDomain, FlySitesDomain].forEach(AnyDomain => {
+;[EntrancesDomain, HolesDomain, WhirlpoolsDomain, FlySitesDomain].forEach(AnyDomain => {
   describe(`The ${AnyDomain.name} class`, () => {
     it('should allow instantiation', () => {
       const domain = new AnyDomain()

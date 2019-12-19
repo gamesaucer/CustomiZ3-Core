@@ -5,11 +5,13 @@ const Domain = require('../../../src/domains/Domain')
 const HolesDomain = require('../../../src/domains/HolesDomain')
 const FlySitesDomain = require('../../../src/domains/FlySitesDomain')
 const WhirlpoolsDomain = require('../../../src/domains/WhirlpoolsDomain')
+const EntrancesDomain = require('../../../src/domains/EntrancesDomain')
 
 const domains = {
   holes: HolesDomain,
   flysites: FlySitesDomain,
-  whirlpools: WhirlpoolsDomain
+  whirlpools: WhirlpoolsDomain,
+  entrances: EntrancesDomain
 }
 
 describe('The DomainFactory function', () => {
