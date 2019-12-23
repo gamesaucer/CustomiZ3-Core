@@ -4,6 +4,7 @@ const HolesDomain = require('./HolesDomain')
 const FlySitesDomain = require('./FlySitesDomain')
 const WhirlpoolsDomain = require('./WhirlpoolsDomain')
 const EntrancesDomain = require('./EntrancesDomain')
+const ExitsDomain = require('./ExitsDomain')
 
 /**
  * Get a Domain based on its name.
@@ -25,6 +26,9 @@ async function DomainFactory (domain) {
       break
     case 'entrances':
       domainInstance = new EntrancesDomain()
+      break
+    case 'exits':
+      domainInstance = new ExitsDomain()
       break
     default:
       throw new Error('Unknown Domain - unable to provide a Domain instance.')
